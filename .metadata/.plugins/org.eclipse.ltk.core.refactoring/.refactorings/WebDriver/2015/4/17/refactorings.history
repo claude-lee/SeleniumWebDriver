@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;str&apos; in &apos;selen.MyWebDriver&apos; to &apos;systemPath&apos;&#x0D;&#x0A;- Original project: &apos;WebDriver&apos;&#x0D;&#x0A;- Original element: &apos;selen.MyWebDriver.str&apos;&#x0D;&#x0A;- Renamed element: &apos;selen.MyWebDriver.systemPath&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;str&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;selen{MyWebDriver.java[MyWebDriver^str" name="systemPath" references="true" setter="false" stamp="1429646675448" textual="false" version="1.0"/>
+</session>
