@@ -41,8 +41,7 @@ public class MyWebDriver {
 	public static void main(String[] args) {
 		MyWebDriver myDriver = new MyWebDriver();
 
-		myDriver.selectTableXPath();
-//      myDriver.selectTableMethod();
+        myDriver.selectTableMethod();
 //		myDriver.selectDropDownMethod();
 //		myDriver.checkBoxMethod();
 //		myDriver.radioButtonMethod();
@@ -81,27 +80,13 @@ public class MyWebDriver {
 	}
 
 	
-	public void selectTableXPath() {
-		this.setup(Browser.CHROME);
-		this.openHtml(Html.TABLETEST);
-		
-	    WebElement row = driver.findElement(By.xpath("/html/body/table/tbody/tr/td[2]/table/tbody/tr[2]/td"));
-		System.out.println(row.getText());
-		
-		this.tearDown();
-	}
-	
-	
 	public void selectTableMethod() {
 		this.setup(Browser.CHROME);
 		this.openHtml(Html.TABLETEST);
-		
 		WebElement outerTable = driver.findElement(By.tagName("table"));
 		WebElement innerTable = outerTable.findElement(By.tagName("table"));
 	    WebElement row = innerTable.findElements(By.tagName("td")).get(1);
-		System.out.println(row.getText());
-		
-		this.tearDown();
+		System.out.println(row.toString());
 	}
 	
 
