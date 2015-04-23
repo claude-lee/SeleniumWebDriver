@@ -93,7 +93,7 @@ public class MyWebDriver {
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-	   // driver.findElement(By.id("searchText")).clear();
+	    driver.findElement(By.id("searchText")).clear();
 	    driver.findElement(By.id("searchText")).sendKeys("pluralsight");
 	    driver.findElement(By.id("searchSubmit")).click();
 	    driver.findElement(By.linkText("Bilder")).click();

@@ -66,7 +66,7 @@ public class MyWebDriver {
 	public void openHtml(Html html) {
 		switch (html) {
 		case GOOGLE:
-			driver.get("https://www.google.com/");
+			driver.get("https://www.google.com");
 			break;
 		case TEST:
 			driver.get("file:///" + systemPath +"/res/html/TestPage.html");
@@ -93,7 +93,8 @@ public class MyWebDriver {
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-	   // driver.findElement(By.id("searchText")).clear();
+		driver.get(Html.GOOGLE + "about:home");
+	    driver.findElement(By.id("searchText")).clear();
 	    driver.findElement(By.id("searchText")).sendKeys("pluralsight");
 	    driver.findElement(By.id("searchSubmit")).click();
 	    driver.findElement(By.linkText("Bilder")).click();

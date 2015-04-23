@@ -41,8 +41,7 @@ public class MyWebDriver {
 	public static void main(String[] args) {
 		MyWebDriver myDriver = new MyWebDriver();
 
-		//myDriver.selectTableXPath();
-		myDriver.openChromeExplicitWait();
+		myDriver.selectTableXPath();
 //      myDriver.selectTableMethod();
 //		myDriver.selectDropDownMethod();
 //		myDriver.checkBoxMethod();
@@ -66,7 +65,7 @@ public class MyWebDriver {
 	public void openHtml(Html html) {
 		switch (html) {
 		case GOOGLE:
-			driver.get("https://www.google.com/");
+			driver.get("https://www.google.com");
 			break;
 		case TEST:
 			driver.get("file:///" + systemPath +"/res/html/TestPage.html");
@@ -79,33 +78,6 @@ public class MyWebDriver {
 			break;
 		}
 
-	}
-	
-	public void openChromeExplicitWait() {
-		this.setup(Browser.FIREFOX);
-		this.openHtml(Html.GOOGLE);
-
-		driver.manage().window().maximize();
-
-		WebElement searchBox = driver.findElement(By.id("lst-ib"));
-		searchBox.sendKeys("pluralsight");
-		searchBox.sendKeys(Keys.ENTER);
-
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
-	   // driver.findElement(By.id("searchText")).clear();
-	    driver.findElement(By.id("searchText")).sendKeys("pluralsight");
-	    driver.findElement(By.id("searchSubmit")).click();
-	    driver.findElement(By.linkText("Bilder")).click();
-
-		//WebDriverWait wait = new WebDriverWait(driver,5);
-		//WebElement imageLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[5]/div[3]/div[5]/div/div/div[1]/div/div/div[2]/a")));
-		                                                             // or wait.until(ExpectedConditions.elementToBeClickable(By.id<locator>));                        
-	//	WebElement imageLink = driver.findElement(By.cssSelector("a.vasq.srp")); //By.linkText("url")
-		//imageLink.click();
-
-		System.out.println("The current URL is " + driver.getCurrentUrl());
-		this.tearDown();
 	}
 
 	
