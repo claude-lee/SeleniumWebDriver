@@ -5,13 +5,15 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver.Timeouts"/>
-<fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.Timer"/>
 <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
-<fullyQualifiedTypeName name="selen.MyWebDriver.Browser"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.ie.InternetExplorerDriver"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.browserlaunchers.locators.GoogleChromeLocator"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.Keys"/>
 <fullyQualifiedTypeName name="selen.MyWebDriver"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.WebDriverWait"/>
+<fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.Timer"/>
+<fullyQualifiedTypeName name="selen.MyWebDriver.Browser"/>
+<fullyQualifiedTypeName name="selen.MyWebDriver.Html"/>
 </qualifiedTypeNameHistroy>

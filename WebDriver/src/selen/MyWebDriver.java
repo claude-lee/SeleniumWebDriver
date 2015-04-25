@@ -1,59 +1,54 @@
 package selen;
 
 import java.io.File;
-import java.net.URL;
-import java.security.CodeSource;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.browserlaunchers.locators.GoogleChromeLocator;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.*;
-import com.thoughtworks.selenium.webdriven.Timer;
+
+import selen.WebDriverHelper.*;
 
 
 public class MyWebDriver {
 
-	WebDriver driver;
-	String systemPath;
+	private WebDriver driver;
+	private String systemPath;
+
+
+
+	public static void main(String[] args) {
+		
+		mainLocal();
+		
+		mainServer();
+
+	}
 	
-	public MyWebDriver() {
+	public static void mainLocal(){
+		MyWebDriver myDriver = new MyWebDriver();
+		
+		myDriver.openChromeExplicitWaitElemToBeClickable();
+
+		myDriver.selectTableXPathChrome();
+		myDriver.openChromeExplicitWaitVisOfElemLocated();
+		myDriver.selectTableXPathChrome();
+		myDriver.selectDropDownMethod();
+		myDriver.clickAndUnclickCheckBox();
+		myDriver.printSelectedRadioButton();
+		myDriver.clickImagesImplicitWaitFirefox();
+		myDriver.openFireFox();
+		myDriver.openInternetExplorer();
+	}
+	
+	public static void mainServer(){
 		
 	}
-
-	public enum Browser {
-		FIREFOX, IE, CHROME
-	}
-
-	public enum Html {
-		GOOGLE, TEST, TABLETEST
-	}
-
-	
-	
-	public static void main(String[] args) {
-		MyWebDriver myDriver = new MyWebDriver();
-
-		//myDriver.selectTableXPath();
-		myDriver.openChromeExplicitWait();
-//      myDriver.selectTableMethod();
-//		myDriver.selectDropDownMethod();
-//		myDriver.checkBoxMethod();
-//		myDriver.radioButtonMethod();
-//		myDriver.openChrome(); // problem with opening Images Link
-//		myDriver.openFireFox();
-//		myDriver.openInternetExplorer();
-
-	}
-
-	
 
 	public WebDriver getDriver() {
 		return driver;
@@ -62,93 +57,105 @@ public class MyWebDriver {
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
-
-	public void openHtml(Html html) {
-		switch (html) {
-		case GOOGLE:
-			driver.get("https://www.google.com/");
-			break;
-		case TEST:
-			driver.get("file:///" + systemPath +"/res/html/TestPage.html");
-			break;
-		case TABLETEST:
-			driver.get("file:///" + systemPath +"/res/html/TableTest.html");
-			break;
-		default:
-			System.out.println("HTML not found");
-			break;
-		}
-
-	}
 	
-	public void openChromeExplicitWait() {
+	public void openChromeExplicitWaitElemToBeClickable() {
 		this.setup(Browser.FIREFOX);
-		this.openHtml(Html.GOOGLE);
+		openHtml(Html.GOOGLE);
 
 		driver.manage().window().maximize();
 
 		WebElement searchBox = driver.findElement(By.id("lst-ib"));
+		searchBox.clear();
 		searchBox.sendKeys("pluralsight");
-		searchBox.sendKeys(Keys.ENTER);
 
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
-	   // driver.findElement(By.id("searchText")).clear();
-	    driver.findElement(By.id("searchText")).sendKeys("pluralsight");
-	    driver.findElement(By.id("searchSubmit")).click();
-	    driver.findElement(By.linkText("Bilder")).click();
-
-		//WebDriverWait wait = new WebDriverWait(driver,5);
-		//WebElement imageLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[5]/div[3]/div[5]/div/div/div[1]/div/div/div[2]/a")));
-		                                                             // or wait.until(ExpectedConditions.elementToBeClickable(By.id<locator>));                        
-	//	WebElement imageLink = driver.findElement(By.cssSelector("a.vasq.srp")); //By.linkText("url")
-		//imageLink.click();
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebElement imageLink = wait.until(ExpectedConditions
+				.elementToBeClickable(By.cssSelector("a.q.qs")));
+		imageLink.click();
 
 		System.out.println("The current URL is " + driver.getCurrentUrl());
 		this.tearDown();
 	}
 
 	
-	public void selectTableXPath() {
-		this.setup(Browser.CHROME);
-		this.openHtml(Html.TABLETEST);
-		
-	    WebElement row = driver.findElement(By.xpath("/html/body/table/tbody/tr/td[2]/table/tbody/tr[2]/td"));
-		System.out.println(row.getText());
-		
+	
+	public void openChromeExplicitWaitVisOfElemLocated() {
+		this.setup(Browser.FIREFOX);
+		openHtml(Html.GOOGLE);
+
+		driver.manage().window().maximize();
+
+		WebElement searchBox = driver.findElement(By.id("lst-ib"));
+		searchBox.clear();
+		searchBox.sendKeys("pluralsight");
+
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebElement imageLink = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.cssSelector("a.q.qs")));
+		imageLink.click();
+
+		System.out.println("The current URL is " + driver.getCurrentUrl());
 		this.tearDown();
 	}
 	
-	
-	public void selectTableMethod() {
+	public void clickImagesImplicitWaitFirefox() {
+		this.setup(Browser.FIREFOX);
+		this.openHtml(Html.GOOGLE);
+
+		driver.manage().window().maximize();
+
+		WebElement searchBox = driver.findElement(By.id("lst-ib"));
+		searchBox.clear();
+		searchBox.sendKeys("pluralsight");
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+		WebElement images = driver.findElement(By.cssSelector("a.q.qs"));
+		images.click();
+
+		System.out.println("The current URL is " + driver.getCurrentUrl());
+		this.tearDown();
+	}
+
+	public void selectTableXPathChrome() {
 		this.setup(Browser.CHROME);
 		this.openHtml(Html.TABLETEST);
-		
+
+		WebElement row = driver.findElement(By
+				.xpath("/html/body/table/tbody/tr/td[2]/table/tbody/tr[2]/td"));
+		System.out.println(row.getText());
+
+		this.tearDown();
+	}
+
+	public void selectInnerOuterTable() {
+		this.setup(Browser.CHROME);
+		this.openHtml(Html.TABLETEST);
+
 		WebElement outerTable = driver.findElement(By.tagName("table"));
 		WebElement innerTable = outerTable.findElement(By.tagName("table"));
-	    WebElement row = innerTable.findElements(By.tagName("td")).get(1);
+		WebElement row = innerTable.findElements(By.tagName("td")).get(1);
 		System.out.println(row.getText());
-		
+
 		this.tearDown();
 	}
-	
 
 	public void selectDropDownMethod() {
 		this.setup(Browser.CHROME);
 		this.openHtml(Html.TEST);
 
 		WebElement selectBox = driver.findElement(By.id("select1"));
-		
+
 		Select select = new Select(selectBox);
 		select.selectByVisibleText("Tom");
-		//WebElement tomOption = selectBox.findElements(By.tagName("option")).get(2);
-		//tomOption.click();
-		
+		// WebElement tomOption =
+		// selectBox.findElements(By.tagName("option")).get(2);
+		// tomOption.click();
+
 		this.tearDown();
 
 	}
 
-	public void checkBoxMethod() {
+	public void clickAndUnclickCheckBox() {
 		this.setup(Browser.CHROME);
 		this.openHtml(Html.TEST);
 		WebElement checkBox = driver.findElement(By.id("check1"));
@@ -157,7 +164,7 @@ public class MyWebDriver {
 		this.tearDown();
 	}
 
-	public void radioButtonMethod() {
+	public void printSelectedRadioButton() {
 		this.setup(Browser.CHROME);
 		this.openHtml(Html.TEST);
 
@@ -170,24 +177,7 @@ public class MyWebDriver {
 		this.tearDown();
 	}
 
-	public void openChromeImplicitWait() {
-		this.setup(Browser.CHROME);
-		this.openHtml(Html.GOOGLE);
 
-		driver.manage().window().maximize();
-
-		WebElement searchBox = driver.findElement(By.id("lst-ib"));
-		searchBox.sendKeys("pluralsight");
-		searchBox.sendKeys(Keys.ENTER);
-
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
-		WebElement imageLink = driver.findElement(By.cssSelector("a.vasq.srp")); //By.linkText("url")
-		imageLink.click();
-
-		System.out.println("The current URL is " + driver.getCurrentUrl());
-		this.tearDown();
-	}
 
 	public void openInternetExplorer() {
 		this.setup(Browser.IE);
@@ -207,24 +197,22 @@ public class MyWebDriver {
 		System.out.println("The current URL is " + driver.getCurrentUrl());
 		this.tearDown();
 	}
-	
+
 	public void setup(Browser browser) {
 		systemPath = System.getProperty("user.dir").replace("\\", "/");
-		 
+
 		File file;
 		switch (browser) {
 		case FIREFOX:
 			driver = new FirefoxDriver();
 			break;
 		case IE:
-			file = new File(
-					systemPath + "/res/driver/IEDriverServer.exe");
+			file = new File(systemPath + "/res/driver/IEDriverServer.exe");
 			System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
 			driver = new InternetExplorerDriver();
 			break;
 		case CHROME:
-			file = new File(
-					systemPath + "/res/driver/chromedriver.exe");
+			file = new File(systemPath + "/res/driver/chromedriver.exe");
 			System.setProperty("webdriver.chrome.driver",
 					file.getAbsolutePath());
 			driver = new ChromeDriver();
@@ -236,7 +224,25 @@ public class MyWebDriver {
 
 	}
 	
-	public void tearDown(){
+	public void openHtml(Html html) {
+		switch (html) {
+		case GOOGLE:
+			driver.get("https://www.google.com/");
+			break;
+		case TEST:
+			driver.get("file:///" + systemPath + "/res/html/TestPage.html");
+			break;
+		case TABLETEST:
+			driver.get("file:///" + systemPath + "/res/html/TableTest.html");
+			break;
+		default:
+			System.out.println("HTML not found");
+			break;
+		}
+
+	}
+
+	public void tearDown() {
 		try {
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {

@@ -1,0 +1,13 @@
+package selen;
+
+public class WebDriverHelper {
+	
+	public enum Browser {
+		FIREFOX, IE, CHROME
+	}
+
+	public enum Html {
+		GOOGLE, TEST, TABLETEST
+	}
+
+}

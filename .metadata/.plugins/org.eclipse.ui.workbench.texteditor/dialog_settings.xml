@@ -9,6 +9,8 @@
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
 			<item value="GOOGLE"/>
+			<item value="xpath"/>
+			<item value="wait"/>
 			<item value="tear"/>
 			<item value="test"/>
 			<item value="close"/>
