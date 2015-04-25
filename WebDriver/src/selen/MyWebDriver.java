@@ -1,15 +1,20 @@
 package selen;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.*;
 
 import selen.WebDriverHelper.*;
@@ -24,7 +29,7 @@ public class MyWebDriver {
 
 	public static void main(String[] args) {
 		
-		mainLocal();
+		//mainLocal();
 		
 		mainServer();
 
@@ -44,10 +49,22 @@ public class MyWebDriver {
 		myDriver.clickImagesImplicitWaitFirefox();
 		myDriver.openFireFox();
 		myDriver.openInternetExplorer();
+		
 	}
 	
 	public static void mainServer(){
-		
+		MyWebDriver myDriver = new MyWebDriver();
+		myDriver.openFireFoxLocal();
+	}
+	
+	public void openFireFoxLocal() {
+		this.setup(Browser.LOCAL);
+		this.openHtml(Html.GOOGLE);
+
+		driver.manage().window().maximize();
+
+		System.out.println("The current URL is " + driver.getCurrentUrl());
+		//this.tearDown();
 	}
 
 	public WebDriver getDriver() {
@@ -216,6 +233,16 @@ public class MyWebDriver {
 			System.setProperty("webdriver.chrome.driver",
 					file.getAbsolutePath());
 			driver = new ChromeDriver();
+			break;
+		case LOCAL:
+			try {
+//				driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.firefox());
+				driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), new DesiredCapabilities("firefox", "", Platform.WINDOWS));
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("oh oh");
+			}
 			break;
 		default:
 			System.out.print("Browser is not supported");

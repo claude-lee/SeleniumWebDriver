@@ -26,3 +26,20 @@ So in order to figure out the XPath,
 - Will show HTML here, (Firefox better than Chrome for that)
 - right click on any element, do Copy XPath
 - paste this !! done !!
+
+Remote
+------------------------------------
+In order to run test cases remotely:
+- cd C:\Program Files (x86)\selenium-java-2.45.0>
+- java -jar selenium-server-standalone-2.45.0.jar
+
+Grid mode / Hub mode:
+--------------------------------------
+In order to run test cases remotely:
+- cd C:\Program Files (x86)\selenium-java-2.45.0>
+- java -jar selenium-server-standalone-2.45.0.jar -role hub
+- open firefox on http://localhost:4444/grid/console
+- open another command prompt
+- cd C:\Program Files (x86)\selenium-java-2.45.0>
+- java -jar selenium-server-standalone-2.45.0.jar -role node -hub http://localhost:4444/grid/register
+
