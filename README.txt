@@ -43,3 +43,35 @@ In order to run test cases remotely:
 - cd C:\Program Files (x86)\selenium-java-2.45.0>
 - java -jar selenium-server-standalone-2.45.0.jar -role node -hub http://localhost:4444/grid/register
 
+
+More info
+------------------------------------------
+code.google.com/p/selenium/wiki/Grid2
+- browser version
+- json format
+- ...
+
+
+Connect to Mac through VNC
+
+Getting up to BAT
+-------------------------------
+Black Box Automation Testing (BAT)
+Blog Series:
+http://simpleprogrammer.com/getting-up-to-bat-series/
+
+Page ObjectModel
+--------------------
+Map Objects from Pages to framework
+
+Rule
+----
+- never require a test declare a variable
+- never require a test to use the new keyword or create a new object
+- never require the test to manage state on their own
+- never expose the browser or document object model (DOM) to the test or let manipulate it directly
+- always reduce the number of parameters for API calls when possible
+- always use default values instead of requireing a parameter when possible
+- prefer to make the API easierto use over the internals of the APIless complex
+- prefer using enumerations and constants when requiring the test to pass in primitive types. (makes the input bounded when possible)
+
