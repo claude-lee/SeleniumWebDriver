@@ -19,25 +19,22 @@ import org.openqa.selenium.support.ui.*;
 
 import selen.WebDriverHelper.*;
 
-
 public class MyWebDriver {
 
 	private WebDriver driver;
 	private String systemPath;
 
-
-
 	public static void main(String[] args) {
-		
-		//mainLocal();
-		
+
+		// mainLocal();
+
 		mainServer();
 
 	}
-	
-	public static void mainLocal(){
+
+	public static void mainLocal() {
 		MyWebDriver myDriver = new MyWebDriver();
-		
+
 		myDriver.openChromeExplicitWaitElemToBeClickable();
 
 		myDriver.selectTableXPathChrome();
@@ -49,14 +46,14 @@ public class MyWebDriver {
 		myDriver.clickImagesImplicitWaitFirefox();
 		myDriver.openFireFox();
 		myDriver.openInternetExplorer();
-		
+
 	}
-	
-	public static void mainServer(){
+
+	public static void mainServer() {
 		MyWebDriver myDriver = new MyWebDriver();
 		myDriver.openFireFoxLocal();
 	}
-	
+
 	public void openFireFoxLocal() {
 		this.setup(Browser.LOCAL);
 		this.openHtml(Html.GOOGLE);
@@ -64,7 +61,7 @@ public class MyWebDriver {
 		driver.manage().window().maximize();
 
 		System.out.println("The current URL is " + driver.getCurrentUrl());
-		//this.tearDown();
+		// this.tearDown();
 	}
 
 	public WebDriver getDriver() {
@@ -74,7 +71,7 @@ public class MyWebDriver {
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+
 	public void openChromeExplicitWaitElemToBeClickable() {
 		this.setup(Browser.FIREFOX);
 		openHtml(Html.GOOGLE);
@@ -94,8 +91,6 @@ public class MyWebDriver {
 		this.tearDown();
 	}
 
-	
-	
 	public void openChromeExplicitWaitVisOfElemLocated() {
 		this.setup(Browser.FIREFOX);
 		openHtml(Html.GOOGLE);
@@ -114,7 +109,7 @@ public class MyWebDriver {
 		System.out.println("The current URL is " + driver.getCurrentUrl());
 		this.tearDown();
 	}
-	
+
 	public void clickImagesImplicitWaitFirefox() {
 		this.setup(Browser.FIREFOX);
 		this.openHtml(Html.GOOGLE);
@@ -194,8 +189,6 @@ public class MyWebDriver {
 		this.tearDown();
 	}
 
-
-
 	public void openInternetExplorer() {
 		this.setup(Browser.IE);
 		this.openHtml(Html.GOOGLE);
@@ -236,8 +229,12 @@ public class MyWebDriver {
 			break;
 		case LOCAL:
 			try {
-//				driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.firefox());
-				driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), new DesiredCapabilities("firefox", "", Platform.WINDOWS));
+				// driver = new RemoteWebDriver(new
+				// URL("http://127.0.0.1:4444/wd/hub"),
+				// DesiredCapabilities.firefox());
+				driver = new RemoteWebDriver(
+						new URL("http://127.0.0.1:4444/wd/hub"),
+						new DesiredCapabilities("firefox", "", Platform.WINDOWS));
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -250,7 +247,7 @@ public class MyWebDriver {
 		}
 
 	}
-	
+
 	public void openHtml(Html html) {
 		switch (html) {
 		case GOOGLE:
