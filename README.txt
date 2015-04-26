@@ -1,3 +1,12 @@
+Gettimg started with Selenium IDE in Firefox:
+----------------------------------
+- seleniumhq.org 
+- downloads tab 
+- download Selenium IDE (Firefox will automatically detect that you're trying to install a plug in) 
+
+Once installed you can open Firefox, go to Web Developer and click Selenium IDE. Here you can record test cases and export test case as Java JUnit test case.
+
+
 
 
 SELENIUM and Eclipse
@@ -16,7 +25,7 @@ b) Add Selenium Java jar, you may add the source file too.
 c) Add all the jars from the libs folder as well
 
 
-XPath
+XPath - Firebug
 -----------------------------------
 So in order to figure out the XPath, 
 - open up Firefox, go to Web Developer
