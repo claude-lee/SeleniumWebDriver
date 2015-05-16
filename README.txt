@@ -78,13 +78,20 @@ Rule
 - never require a test declare a variable
 - never require a test to use the new keyword or create a new object
 - never require the test to manage state on their own
-- never expose the browser or document object model (DOM) to the test or let manipulate it directly
-- always reduce the number of parameters for API calls when possible
+- never expose the browser or document object model (DOM) to the test or let them manipulate it directly
+- always reduce the number of parameters for API calls when possible (not many parameters in methods)
 - always use default values instead of requireing a parameter when possible
 - prefer to make the API easierto use over the internals of the APIless complex
-- prefer using enumerations and constants when requiring the test to pass in primitive types. (makes the input bounded when possible)
+- prefer using enumerations and constants when requiring the test to pass in primitive types. 
+(makes the input bounded when possible) No Strings but Enums!!
 
 Best Practices
 --------------------------------
+- use static methods! In test framework that is ok
+- Ease of use more important than maintainability
+- use DSL Domain Specific Languages
+- internal DSL
+- external DSL (whole new languale, too much work)
+- HOW to report the result of the test?? 
 LoginPage.Goto();
 LoginPage.Login("Joe", "$securePassweord")
