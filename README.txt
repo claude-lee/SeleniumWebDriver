@@ -18,7 +18,11 @@ Gettimg started with Selenium IDE in Firefox:
 
 Once installed you can open Firefox, go to Web Developer and click Selenium IDE. Here you can record test cases and export test case as Java JUnit test case.
 
-
+WAIT
+------
+WebDriverWait wait until
+WebDriverWait wait = new WebDriverWait(webDriver, timeoutInSeconds);
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.id<locator>));
 
 
 SELENIUM and Eclipse
