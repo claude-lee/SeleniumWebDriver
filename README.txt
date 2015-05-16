@@ -84,3 +84,7 @@ Rule
 - prefer to make the API easierto use over the internals of the APIless complex
 - prefer using enumerations and constants when requiring the test to pass in primitive types. (makes the input bounded when possible)
 
+Best Practices
+--------------------------------
+LoginPage.Goto();
+LoginPage.Login("Joe", "$securePassweord")
