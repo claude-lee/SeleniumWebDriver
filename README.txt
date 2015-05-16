@@ -1,3 +1,15 @@
+Next Steps:
+-----------------------
+- 1. Setp solution and project (2 projects? Tests and TestFramework?)
+- 2. Create sample test
+- 3. Create Smoke tests
+- can login
+- can create new post
+- can edit an existing page
+- smoke tests
+- easy to create and they test a large area of the system
+
+
 Gettimg started with Selenium IDE in Firefox:
 ----------------------------------
 - seleniumhq.org 
