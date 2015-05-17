@@ -84,3 +84,60 @@ Rule
 - prefer to make the API easierto use over the internals of the APIless complex
 - prefer using enumerations and constants when requiring the test to pass in primitive types. (makes the input bounded when possible)
 
+Code coverage
+-----------------
+
+1. EclEmma: In eclipse -> Help -> Marketplace -> install EclEmma
+- Just run not to automate
+
+2. Cobertura: more complicated, to automate
+- http://cobertura.github.io/cobertura/
+
+
+Infinite Test 
+-----------------
+- runs the corresponding tests when code is updated
+http://infinitest.github.io/
+- drag and drop to eclipse window -> install in Marketplace
+
+Stub
+-------------
+- interface 
+- stub class to implement interface which gives dummy data
+
+JMock
+-----------
+- http://www.jmock.org/download.html, download jar Binary JARs
+- copy to Utilities libraries
+- eclipse , Java Build Path, Order and Export, before JUnit, 
+
+
+TDD
+-------------------
+- TDD, where did it all go wrong
+http://vimeo.com/68375232
+- Integration tests are a scam -JB Rainsberger
+http://www.infoq.com/presentations/integration-tests-scam
+- The Art of Unit Testing - Roy Osherove
+http://www.manning.com/osherove
+
+
+Refactor
+----------
+- small steps
+- run tests after each step
+- no new features or bug fixes
+- stop at the goal
+- minimize time in broken state
+
+
+Code Analysis
+--------------------------
+ctrl + 1
+
+
+Moving code
+--------------
+select line and alt + UP to move line up
+
+

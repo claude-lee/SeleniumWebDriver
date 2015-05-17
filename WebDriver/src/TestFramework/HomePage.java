@@ -26,6 +26,7 @@ public class HomePage {
 		WebElement author = Browser.webDriver.findElement(By
 				.linkText(authorName));
 		author.click();
+		System.out.println("bbg");
 	}
 
 	public boolean isAtAuthorPage(String authorName) {
