@@ -138,6 +138,11 @@ Scaling out
  (that makes tests faster)
  - Sauce Labs
  
+Working with agile
+----------------------------------
+- make the automated test part of the agile process
+- passing all automated tests in part of criteria
+
 
 Browser Versions
 ------------------------------
