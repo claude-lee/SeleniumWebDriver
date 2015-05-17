@@ -113,3 +113,13 @@ LoginPage.Goto();
 LoginPage.Login("Joe", "$securePassweord")
 - Test should only fail if specific thing I am testing 
 - something else is failed then it should be a test error
+
+
+
+Continuous Integration
+----------------------------------
+- Have a plan and stick to it
+- Run tests as part of a build
+- Run tests locally
+- Report results
+- Break builds
