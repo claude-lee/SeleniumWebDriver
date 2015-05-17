@@ -138,3 +138,9 @@ Scaling out
  (that makes tests faster)
  - Sauce Labs
  
+
+Browser Versions
+------------------------------
+- not nesessary to have on every browser
+- only smoke tests on different platforms/browsers
+- rest on one platform/browser and alternate from time to time
