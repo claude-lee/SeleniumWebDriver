@@ -1,3 +1,15 @@
+Next Steps:
+-----------------------
+- 1. Setp solution and project (2 projects? Tests and TestFramework?)
+- 2. Create sample test
+- 3. Create Smoke tests
+- can login
+- can create new post
+- can edit an existing page
+- smoke tests
+- easy to create and they test a large area of the system
+
+
 Gettimg started with Selenium IDE in Firefox:
 ----------------------------------
 - seleniumhq.org 
@@ -6,7 +18,11 @@ Gettimg started with Selenium IDE in Firefox:
 
 Once installed you can open Firefox, go to Web Developer and click Selenium IDE. Here you can record test cases and export test case as Java JUnit test case.
 
-
+WAIT
+------
+WebDriverWait wait until
+WebDriverWait wait = new WebDriverWait(webDriver, timeoutInSeconds);
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.id<locator>));
 
 
 SELENIUM and Eclipse
@@ -78,12 +94,57 @@ Rule
 - never require a test declare a variable
 - never require a test to use the new keyword or create a new object
 - never require the test to manage state on their own
-- never expose the browser or document object model (DOM) to the test or let manipulate it directly
-- always reduce the number of parameters for API calls when possible
+- never expose the browser or document object model (DOM) to the test or let them manipulate it directly
+- always reduce the number of parameters for API calls when possible (not many parameters in methods)
 - always use default values instead of requireing a parameter when possible
 - prefer to make the API easierto use over the internals of the APIless complex
-- prefer using enumerations and constants when requiring the test to pass in primitive types. (makes the input bounded when possible)
+- prefer using enumerations and constants when requiring the test to pass in primitive types. 
+(makes the input bounded when possible) No Strings but Enums!!
 
+Best Practices
+--------------------------------
+- use static methods! In test framework that is ok
+- Ease of use more important than maintainability
+- use DSL Domain Specific Languages
+- internal DSL
+- external DSL (whole new languale, too much work)
+- HOW to report the result of the test?? 
+LoginPage.Goto();
+LoginPage.Login("Joe", "$securePassweord")
+- Test should only fail if specific thing I am testing 
+- something else is failed then it should be a test error
+
+
+
+Continuous Integration
+----------------------------------
+- Have a plan and stick to it
+- Run tests as part of a build
+- Run tests locally
+- Report results
+- Break builds
+
+
+True DSL
+-----
+check out ANTLR
+
+
+Scaling out
+-------------------------
+- run in parallel
+- split tests in groups
+- have some data preset in database and rely on that data
+ (that makes tests faster)
+ - Sauce Labs
+ 
+Working with agile
+----------------------------------
+- make the automated test part of the agile process
+- passing all automated tests in part of criteria
+
+
+<<<<<<< HEAD
 Code coverage
 -----------------
 
@@ -141,3 +202,8 @@ Moving code
 select line and alt + UP to move line up
 
 
+Browser Versions
+------------------------------
+- not nesessary to have on every browser
+- only smoke tests on different platforms/browsers
+- rest on one platform/browser and alternate from time to time
