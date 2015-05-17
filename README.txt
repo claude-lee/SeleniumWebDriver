@@ -128,3 +128,13 @@ Continuous Integration
 True DSL
 -----
 check out ANTLR
+
+
+Scaling out
+-------------------------
+- run in parallel
+- split tests in groups
+- have some data preset in database and rely on that data
+ (that makes tests faster)
+ - Sauce Labs
+ 
