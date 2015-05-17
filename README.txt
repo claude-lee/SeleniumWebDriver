@@ -111,3 +111,5 @@ Best Practices
 - HOW to report the result of the test?? 
 LoginPage.Goto();
 LoginPage.Login("Joe", "$securePassweord")
+- Test should only fail if specific thing I am testing 
+- something else is failed then it should be a test error
